@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,16 @@ Route::get('perfil/{id?}', function ($id = null) {
         return "Visualizar el currículo de " . $id;
     }
 })->where('id', '[0-9]+');
+
+
+Route::prefix('actividad')->group(function () {
+    Route::get('/', [ActividadController::class, 'getIndex']);
+
+    Route::get('/show/{id}', [ActividadController::class,'getShow'])->where('id', '[0-9]+');
+
+    Route::get('/create', function () {
+        return view('actividad.create');
+    });
+
+    Route::get('/edit/{id}', [ActividadController::class,'getEdit'])->where('id', '[0-9]+');
+});
