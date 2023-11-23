@@ -58,4 +58,5 @@ Route::prefix('actividad')->group(function () {
     });
 
     Route::get('/edit/{id}', [ActividadController::class,'getEdit'])->where('id', '[0-9]+');
+    Route::get('/edit/{id}', [ActividadController::class,'putEdit'])->where('id', '[0-9]+');
 });
