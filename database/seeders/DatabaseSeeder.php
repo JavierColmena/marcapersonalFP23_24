@@ -6,6 +6,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use \App\Models\Estudiante;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,13 +23,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $estudiante = new Estudiante;
-        $estudiante->nombre = 'Juan';
-        $estudiante->apellidos = 'Martínez';
-        $estudiante->direccion = 'Dirección de Juan';
-        $estudiante->votos = 130;
-        $estudiante->confirmado = true;
-        $estudiante->ciclo = 'DAW';
-        $estudiante->save();
+        Model::unguard();
+        Schema::disableForeignKeyConstraints();
+
+        $this->call(EstudiantesTableSeeder::class);
+
+        Model::reguard();
+
+        Schema::enableForeignKeyConstraints();
     }
 }
