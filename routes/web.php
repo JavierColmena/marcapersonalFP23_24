@@ -103,52 +103,52 @@ Route::get('perfil/{id?}', function ($id = null) {
 })->where('id', '[0-9]+');
 
 
-Route::get('pruebaDB', function () {
-    // aquí irán el código que utiliza el modelo
-    // $estudiante = Estudiante::findOrFail($id);
+// Route::get('pruebaDB', function () {
+//     // aquí irán el código que utiliza el modelo
+//     // $estudiante = Estudiante::findOrFail($id);
 
-    // $estudiante = Estudiante::where('votos','>',100)->firstOrFail();
+//     // $estudiante = Estudiante::where('votos','>',100)->firstOrFail();
 
-    // Obtener 10 estudiantes con más de 100 votos
-    // $estudiantes = Estudiante::where('votos', '>', 100)->take(10)->get();
+//     // Obtener 10 estudiantes con más de 100 votos
+//     // $estudiantes = Estudiante::where('votos', '>', 100)->take(10)->get();
 
-    // foreach ($estudiantes as $estudiante) {
-    //     echo $estudiante->nombre . ' ' . $estudiante->votos . '<br />';
-    // }
+//     // foreach ($estudiantes as $estudiante) {
+//     //     echo $estudiante->nombre . ' ' . $estudiante->votos . '<br />';
+//     // }
 
-    // dd($estudiantes); //PARA DEPURAR
-    // echo $estudiante->nombre;
+//     // dd($estudiantes); //PARA DEPURAR
+//     // echo $estudiante->nombre;
 
-    //INSERTAR
-    // $count = Estudiante::where('votos', '>', 100)->count();
-    // echo 'Antes: ' . $count . '<br />';
+//     //INSERTAR
+//     // $count = Estudiante::where('votos', '>', 100)->count();
+//     // echo 'Antes: ' . $count . '<br />';
 
-    // $estudiante = new Estudiante;
-    // $estudiante->nombre = 'Juan';
-    // $estudiante->apellidos = 'Martínez';
-    // $estudiante->direccion = 'Dirección de Juan';
-    // $estudiante->votos = 130;
-    // $estudiante->confirmado = true;
-    // $estudiante->ciclo = 'DAW';
-    // $estudiante->save();
+//     // $estudiante = new Estudiante;
+//     // $estudiante->nombre = 'Juan';
+//     // $estudiante->apellidos = 'Martínez';
+//     // $estudiante->direccion = 'Dirección de Juan';
+//     // $estudiante->votos = 130;
+//     // $estudiante->confirmado = true;
+//     // $estudiante->ciclo = 'DAW';
+//     // $estudiante->save();
 
-    // echo 'El estudiante tiene el id: ' . $estudiante->id . '<br/>';
+//     // echo 'El estudiante tiene el id: ' . $estudiante->id . '<br/>';
 
-    //ACTUALIZAR
-    // $estudiante = Estudiante::find(42);
-    // $estudiante->votos = 200;
-    // $estudiante->save();
+//     //ACTUALIZAR
+//     // $estudiante = Estudiante::find(42);
+//     // $estudiante->votos = 200;
+//     // $estudiante->save();
 
 
-    //BORRAR
-    $count = Estudiante::count();
-    echo 'Antes: ' . $count . '<br />';
-    $estudiante = Estudiante::findOrFail(42);
-    $estudiante->delete();
+//     //BORRAR
+//     $count = Estudiante::count();
+//     echo 'Antes: ' . $count . '<br />';
+//     $estudiante = Estudiante::findOrFail(42);
+//     $estudiante->delete();
 
-    $count = Estudiante::count();
-    echo 'Después: ' . $count . '<br />';
+//     $count = Estudiante::count();
+//     echo 'Después: ' . $count . '<br />';
 
-    // $count = Estudiante::where('votos', '>', 100)->count();
-    // echo 'Después: ' . $count . '<br />';
-});
+//     // $count = Estudiante::where('votos', '>', 100)->count();
+//     // echo 'Después: ' . $count . '<br />';
+// });
