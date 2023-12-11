@@ -8,7 +8,7 @@ use App\Http\Controllers\ReconocimientoController;
 use App\Http\Controllers\CurriculoController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\DocenteController;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -109,7 +109,6 @@ Route::prefix('estudiantes')->group(function () {
     Route::put('/edit/{id}', [EstudianteController::class, 'putEdit'])->where('id', '[0-9]+');
 
     Route::post('/', [EstudianteController::class, 'store']);
-
 });
 
 Route::prefix('docentes')->group(function () {
@@ -132,3 +131,16 @@ Route::get('perfil/{id?}', function ($id = null) {
         return "Visualizar el currículo de " . $id;
     }
 })->where('id', '[0-9]+')->name('perfil');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
